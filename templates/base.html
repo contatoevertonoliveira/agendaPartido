@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon-16x16.png' %}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.png' %}">
+    <link rel="manifest" href="{% static 'img/site.webmanifest' %}">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.min.js" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link type="text/css" href="/static/vendor/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
+    <link type="text/css" href="/static/vendor/notyf/notyf.min.css" rel="stylesheet">
+    <link type="text/css" href="/static/css/volt.css" rel="stylesheet">
+  
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    
+  </head>
+<body>
+
+    <!-- {% include "model-header.html" %} -->
+
+    {% block content %}{% endblock %}
+
+    {% include "model-footer.html" %}
+
+  {% include 'includes/scripts.html' %}
+
+  <!-- Specific Page JS goes HERE  -->
+  {% block javascripts %}{% endblock javascripts %}  
+</body>
+</html>
