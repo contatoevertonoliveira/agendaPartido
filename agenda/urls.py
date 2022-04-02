@@ -15,27 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.conf import settings
 from core.views import *
 from home.views import *
 from django.views.generic import RedirectView
-from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('home.urls', namespace="home")),
-    path('submit', home),
-    # path('home/', RedirectView.as_view(url='/home/')),
-    path('agenda/', lista_eventos),
-    path('agenda/lista/', json_lista_eventos),
-    path('agenda/evento/', evento),
-    path('agenda/evento/submit', submit_evento),
-    path('agenda/evento/delete/<int:id_evento>/', delete_evento),
-    path('agenda/evento/historico/', lista_historico),
-    path('login/', login_user),
-    path('login/submit', submit_login),
-    path('logout/', logout_user),
-    
+    path('', include('home.urls')),
+    path('agenda/', include('core.urls')),
+    path('login/', include('login.urls')),
 ]
-
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

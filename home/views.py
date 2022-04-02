@@ -3,54 +3,42 @@ from django.contrib import messages
 from django.http.response import Http404, JsonResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
-from home.models import Membro
-from django.views.generic import TemplateView
+from django.contrib import messages
+from .models import Membro
+from .forms import MembroForm
 
-class HomePageView(TemplateView):
-    template_name = 'home.html'
+def homeView(request):
+    return render(request, 'home/home.html')
 
-def home(request):
-    if request.POST:
-        nameM = request.POST.get('name')
-        emailM = request.POST.get('email')
-        endM = request.POST.get('end')
-        cityM = request.POST.get('city')
-        ufM = request.POST.get('uf')
-        nameInstM = request.POST.get('namei')
-        dateInstM = request.POST.get('datai')
-        qtdeInstM = request.POST.get('qtdem')
-        infoInstM = request.POST.get('info')
+def homeSubmit(request):
+    form = MembroForm(request.POST or None)
+
+    if form.is_valid():
+        form.save()
+        messages.success(request, 'Cadastro realizado com sucesso!')
+        return redirect('homeView')
         
-        member_id = request.POST.get('member_id')
-        if member_id:
-            member = Membro.objects.get(id=member_id)
-            if member.nameM == nameM:
-                member.emailM = emailM
-                member.endM = endM
-                member.cityM = cityM
-                member.ufM = ufM
-                member.nameInstM = nameInstM
-                member.dateInstM = dateInstM
-                member.membersQt = qtdeInstM
-                member.infoInstM = infoInstM
-                member.save()
-            else:
-                Membro.objects.create(
-                    nameM = nameM,
-                    emailM = emailM,
-                    endM = endM,
-                    cityM = cityM,
-                    ufM = ufM,
-                    nameInstM = nameInstM,
-                    dateInstM = dateInstM,
-                    membersQt = qtdeInstM,
-                    infoInstM = infoInstM
-                )
-    return redirect ('/')
-
-@login_required(login_url='/login/')
+    return render(request, 'home/home.html', {'form': form})
+    
+@login_required(login_url='login/')
 def listMembers(request):
-    nameInstM = request.nameInstM
-    member = Membro.objects.filter(nameM=nameInstM).values('id','nameM')
-    dados = {'Instituto:':nameInstM}
-    return JsonResponse(list(member), safe=False)
+    members = Membro.objects.all().values('id','nameM','nameInstM')
+    return JsonResponse(list(members), safe=False)
+
+@login_required(login_url='login/')
+def updateMember(request, id):
+    member = Membro.objects.get(id=id)
+    form = MembroForm(request.POST or None, instance=member)
+    
+    if form.is_valid():
+        form.save()
+        return redirect('homeView')
+    return redirect(request, 'home/home.html', {'form': form, 'member':member})
+
+@login_required(login_url='login/')
+def deleteMember(request):
+    member = Membro.objects.get(id=id)
+    
+    if request.method == 'POST':
+        member.delete()
+        return redirect('homeView')

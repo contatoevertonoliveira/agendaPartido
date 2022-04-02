@@ -1,8 +1,10 @@
 from django.urls import path
-from . import views
-
-app_name = 'home'
+from home.views import *
 
 urlpatterns = [
-    path('', views.HomePageView.as_view(), name="home"),
+  path('', homeView, name='homeView'),
+  path('submit', homeSubmit, name='createMember'),
+  path('lista/', listMembers, name='listMember'),
+  path('update/<int:id>/', updateMember, name='updateMember'),
+  path('delete/<int:id>/', deleteMember, name='deleteMember'),
 ]

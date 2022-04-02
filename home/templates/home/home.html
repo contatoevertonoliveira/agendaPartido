@@ -17,18 +17,22 @@
               </div>
             </div>
   
-            <form action="submit" method="POST">{% csrf_token %}
+            <form action="submit" method="POST">
+              {% csrf_token %}
               <div class="row mt-3">
                 <div class="col-sm-6 form-group mb-4">
                   <label for="name">Nome Completo:</label>
-                  <input type="number" name="member_id" value="{{ members.member_id }}" hidden>
+                  <input id="nomeC" type="number" name="member_id" value="{{ members.member_id }}" hidden>
                   <div class="input-group">
                     <span class="input-group-text" id="basic-addon1">
                       <span class="material-icons">
                         badge
                         </span>
                     </span>
-                    <input name="nameM" type="text" class="form-control" placeholder="seu Nome Completo" id="nameM" autofocus="" required="">
+                    <input name="name_m" type="text" class="form-control" placeholder="seu Nome Completo" value="{{ members.nameM }}" required>
+                    <div class="invalid-feedback">
+                      Por favor preencha seu Nome Completo!
+                    </div>
                   </div>
                 </div>
 
@@ -41,7 +45,7 @@
                         <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
                       </svg>
                     </span>
-                    <input type="email" class="form-control" placeholder="seuemail@pdtaxe.com.br" id="email" autofocus="" required="">
+                    <input name="emailM" type="email" class="form-control" placeholder="seuemail@pdtaxe.com.br" value="{{ members.email }}" required>
                   </div>
                 </div>
               </div>
@@ -54,7 +58,7 @@
                         transfer_within_a_station
                       </span>
                     </span>
-                    <input type="text" class="form-control" placeholder="seu Endereço" id="end" autofocus="" required="">
+                    <input name="endM" type="text" class="form-control" placeholder="seu Endereço" value="{{ members.endM }}" required>
                   </div>
                 </div>
 
@@ -66,39 +70,39 @@
                         apartment
                         </span>
                     </span>
-                    <input type="text" class="form-control" placeholder="seu Bairro" id="city" autofocus="" required="">
+                    <input name="cityM" type="text" class="form-control" placeholder="seu Bairro" value="{{ members.cityM }}" required>
                   </div>
                 </div>
                 <div class="col-sm-3 form-group mb-4">
                   <label for="uf">Estado:</label>
                   <div class="input-group">
-                    <select class="form-select" aria-label="uf">
+                    <select name="ufM" class="form-select" aria-label="uf">
                       <option selected>Selecione UF</option>
-                      <option value="AC">Acre</option>
-                      <option value="AL">Alagoas</option>
-                      <option value="AM">Amazonas</option>
-                      <option value="BA">Bahia</option>
-                      <option value="DF">Distrito Federal</option>
-                      <option value="ES">Espírito Santo</option>
-                      <option value="GO">Goiás</option>
-                      <option value="MA">Maranhão</option>
-                      <option value="MT">Mato Grosso</option>
-                      <option value="MS">Mato Grosso do Sul</option>
-                      <option value="MG">Minas Gerais</option>
-                      <option value="PA">Pará</option>
-                      <option value="PB">Paraíba</option>
-                      <option value="PR">Paraná</option>
-                      <option value="PE">Pernambuco</option>
-                      <option value="PI">Piauí</option>
-                      <option value="RJ">Rio de Janeiro</option>
-                      <option value="RN">Rio Grande do Norte</option>
-                      <option value="RS">Rio Grande do Sul</option>
-                      <option value="RO">Rondônia</option>
-                      <option value="RR">Roraima</option>
-                      <option value="SC">Santa Catarina</option>
-                      <option value="SP">São Paulo</option>
-                      <option value="SE">Sergipe</option>
-                      <option value="TO">Tocantis</option>
+                      <option value="{{ members.ufM }}">Acre</option>
+                      <option value="{{ members.ufM }}">Alagoas</option>
+                      <option value="{{ members.ufM }}">Amazonas</option>
+                      <option value="{{ members.ufM }}">Bahia</option>
+                      <option value="{{ members.ufM }}">Distrito Federal</option>
+                      <option value="{{ members.ufM }}">Espírito Santo</option>
+                      <option value="{{ members.ufM }}">Goiás</option>
+                      <option value="{{ members.ufM }}">Maranhão</option>
+                      <option value="{{ members.ufM }}">Mato Grosso</option>
+                      <option value="{{ members.ufM }}">Mato Grosso do Sul</option>
+                      <option value="{{ members.ufM }}">Minas Gerais</option>
+                      <option value="{{ members.ufM }}">Pará</option>
+                      <option value="{{ members.ufM }}">Paraíba</option>
+                      <option value="{{ members.ufM }}">Paraná</option>
+                      <option value="{{ members.ufM }}">Pernambuco</option>
+                      <option value="{{ members.ufM }}">Piauí</option>
+                      <option value="{{ members.ufM }}">Rio de Janeiro</option>
+                      <option value="{{ members.ufM }}">Rio Grande do Norte</option>
+                      <option value="{{ members.ufM }}">Rio Grande do Sul</option>
+                      <option value="{{ members.ufM }}">Rondônia</option>
+                      <option value="{{ members.ufM }}">Roraima</option>
+                      <option value="{{ members.ufM }}">Santa Catarina</option>
+                      <option value="{{ members.ufM }}">São Paulo</option>
+                      <option value="{{ members.ufM }}">Sergipe</option>
+                      <option value="{{ members.ufM }}">Tocantis</option>
                     </select>
                   </div>
                 </div>
@@ -113,7 +117,7 @@
                         local_library
                       </span>
                     </span>
-                    <input type="text" class="form-control" placeholder="Instituição" id="namei" autofocus="" required="">
+                    <input name="namei" type="text" class="form-control" placeholder="Instituição" value="{{ members.nameInstM }}" required>
                   </div>
                 </div>
 
@@ -125,7 +129,7 @@
                         event_available
                       </span>
                     </span>
-                    <input type="text" class="form-control" placeholder="Dia/Mês/Ano" id="datai" autofocus="" required="">
+                    <input name="datei" type="text" class="form-control" placeholder="Dia/Mês/Ano" value="{{ members.dateInstM }}" required>
                   </div>
                 </div>
                 <div class="col-sm-3 form-group mb-4">
@@ -136,20 +140,30 @@
                         reduce_capacity
                       </span>
                     </span>
-                    <input type="text" class="form-control" placeholder="Membros" id="qtdem" autofocus="" required="">
+                    <input name="qtdem" type="text" class="form-control" placeholder="Membros" value="{{ members.membersQt }}" required>
                   </div>
                 </div>
               </div>
               <div class="row mb-2">
                 <div class="form-group">
                   <label for="info">Informações Úteis:</label>
-                  <textarea class="form-control" id="info" rows="5"></textarea>
+                  <textarea name="infoM" class="form-control" rows="5" value="{{ members.infoInstM }}"></textarea>
                 </div>
               </div>
-                
-              <div class="d-grid mb-3">
-                <button type="submit" class="btn btn-gray-800 btnSignup">Cadastrar</button>
-              </div>
+
+              {% if messages %}
+                <div id="alert" class="alert alert-success" role="alert">
+                  {% for message in messages %}
+                    <p class="text-center">{{ message }}<br />
+                      <a class="btn btn-gray-800 mt-3" href="/">Realizar um Novo Cadastro</a>
+                    </p>
+                  {% endfor %}
+                </div>
+              {% else %}
+                <div class="d-grid mb-3">
+                  <button onclick="verificaInt()" id="cadClicked" type="submit" class="btn btn-gray-800 btnSignup">Cadastrar</button>
+                </div>
+              {% endif %}
             </form>
             <div class="d-flex justify-content-center">
               <a href="#" class="btn btn-icon-only btn-pill btn-outline-gray-500 me-2" aria-label="facebook button" title="facebook button">

@@ -1,25 +1,28 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Agenda - Login</title>
-  </head>
-  <body>
-    <h1 align="center">Login</h1>
+{% extends "base.html" %} {% block content %}
+ 
+{% load static %}
 
-    <form action="submit" method="POST">
-      {% csrf_token %}
-      <div align="center">
-        <label for="username">Usuário</label>
-        <input type="text" name="username" id="username" />
-        <label for="password">Senha</label>
-        <input type="password" name="password" id="password" />
-        <button type="submit">Entrar</button>
-      </div>
-    </form>
+<body class="text-center w-100">
+  <div class="row justify-content-center mt-2 mb-2">
+  <div class="bg-white shadow border-0 rounded border-light p-lg-4 w-100 fmxw-400">
+  <form action="submit" method="POST">
+    {% csrf_token %}
+    <img class="mb-4" src="/static/img/pdtRosa.jpg" alt="" width="120" height="120">
+    <h1 class="h3 mb-3 font-weight-normal">Dados de Usuário</h1>
+    <label for="username" class="sr-only">Email address</label>
+    <input type="text" id="username" name="username" class="form-control" placeholder="Seu login" required>
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" name="password" id="password" class="form-control mt-3" placeholder="Sua senha" required>
+    <button class="btn btn-lg btn-primary btn-block mt-5" type="submit">Entrar</button>
 
     {% for message in messages %}
       <div align="center" style="margin-top:20px;padding: 20px;background-color: yellow;color: red;font-weight: bold;"><strong>Erro: </strong>{{ message }}</div>
     {% endfor %}
-  </body>
-</html>
+    
+    <p class="mt-4 text-muted">© 2019-2022</p>
+  </form>
+  </div>
+  </div>
+</body>
+{% endblock %}
+

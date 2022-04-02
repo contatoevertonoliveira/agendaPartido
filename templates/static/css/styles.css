@@ -25,3 +25,11 @@
   color: #1F2937;
   border: 2px solid #1F2937;
 }
+
+.form-signin {
+  width: 100% !important;
+  max-width: 330px !important;
+  padding: 15px !important;
+  margin: 0 auto !important;
+}
+
