@@ -1,2 +1,9 @@
-django
-mysql-connector-python
+asgiref==3.5.0
+Django==4.0.3
+django-environ==0.8.1
+mysql-connector-python==8.0.28
+protobuf==3.19.4
+sqlparse==0.4.2
+tzdata==2022.1
+whitenoise==6.0.0
+gunicorn==20.0.4
