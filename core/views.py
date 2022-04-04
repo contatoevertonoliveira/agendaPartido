@@ -11,7 +11,7 @@ def login_user(request):
 
 def logout_user(request):
     logout(request)
-    return redirect('home/')
+    return redirect('/')
 
 def submit_login(request):
     if request.POST:
@@ -20,11 +20,11 @@ def submit_login(request):
         usuario = authenticate(username=username,password=password)
         if usuario is not None:
             login(request, usuario)
-            return redirect('home/')
+            return redirect('/')
         else:
             messages.error(request, "Usuário ou senha inváldos!")
     
-    return redirect('home/')
+    return redirect('/')
 
 
 @login_required(login_url='/login/')

@@ -18,7 +18,7 @@ def homeSubmit(request):
         messages.success(request, 'Cadastro realizado com sucesso!')
         return redirect('homeView')
         
-    return render(request, 'home/home.html', {'form': form})
+    return render(request, 'home.html', {'form': form})
     
 @login_required(login_url='login/')
 def listMembers(request):
@@ -33,7 +33,7 @@ def updateMember(request, id):
     if form.is_valid():
         form.save()
         return redirect('homeView')
-    return redirect(request, 'home/home.html', {'form': form, 'member':member})
+    return redirect(request, 'home.html', {'form': form, 'member':member})
 
 @login_required(login_url='login/')
 def deleteMember(request):

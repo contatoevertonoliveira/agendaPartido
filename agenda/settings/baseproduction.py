@@ -9,13 +9,13 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-from pathlib import Path
 import os
+from pathlib import Path
 # import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-# BASE_DIR = Path(__file__).resolve().parent.parent
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
@@ -48,6 +48,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -61,7 +62,7 @@ ROOT_URLCONF = 'agenda.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -130,19 +131,9 @@ USE_TZ = False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-# STATIC_URL = '/static/'
-
-# STATICFILES_DIRS = (os.path.join(BASE_DIR, 'templates/static'),)
-# STATIC_ROOT = os.path.join('static')
-
-if DEBUG:
-    STATICFILES_DIRS = [
-        os.path.join(BASE_DIR, 'static')
-    ]
-else:
-    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-    
-STATIC_URL = os.path.join(BASE_DIR, '/static/')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = "/static/"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
