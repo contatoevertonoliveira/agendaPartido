@@ -1,0 +1,35 @@
+.footerMinus{
+  background-color: #1F2937 !important;
+  padding: 15px !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  color: #fff !important;
+}
+
+.footerMinus a{
+  color: #fff !important;
+}
+
+.footerMinus a:hover{
+  color: #f0bc74 !important;
+}
+
+.btnSignup{
+  background-color: #ed1b24 !important;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+}
+.btnSignup:hover{
+  background-color: #ed1b10 !important;
+  color: #1F2937;
+  border: 2px solid #1F2937;
+}
+
+.form-signin {
+  width: 100% !important;
+  max-width: 330px !important;
+  padding: 15px !important;
+  margin: 0 auto !important;
+}
+

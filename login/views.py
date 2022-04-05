@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
 def login_user(request):
-    return render(request, 'login.html')
+    return render(request, 'login/login.html')
 
 def logout_user(request):
     logout(request)
@@ -19,5 +19,6 @@ def submit_login(request):
             return redirect('/')
         else:
             messages.error(request, "Usuário ou senha inváldos!")
+            return redirect(login_user)
     
     return redirect('/')

@@ -24,16 +24,13 @@
   </head>
 <body>
 
-    <!-- {% include "model-header.html" %} -->
-
     {% block content %}{% endblock %}
+
+    {% block footer %}{% endblock %}
     
-    {% include "model-footer.html" %}
+    {% include 'includes/scripts.html' %}
 
-  {% include 'includes/scripts.html' %}
-
-  <!-- Specific Page JS goes HERE  -->
-  {% block javascripts %}
-  {% endblock javascripts %}  
+    {% block javascripts %}
+    {% endblock javascripts %}  
 </body>
 </html>

@@ -23,14 +23,14 @@
               <div class="row mt-3">
                 <div class="col-sm-6 form-group mb-4">
                   <label for="name">Nome Completo:</label>
-                  <input id="nomeC" type="number" name="member_id" value="{{ members.member_id }}" hidden>
+                  <input type="number" name="member_id" value="{{ members.member_id }}" hidden>
                   <div class="input-group">
                     <span class="input-group-text" id="basic-addon1">
                       <span class="material-icons">
                         badge
                         </span>
                     </span>
-                    <input name="name_m" type="text" class="form-control" placeholder="seu Nome Completo" value="{{ members.nameM }}" required>
+                    <input name="nameM" type="text" class="form-control" placeholder="seu Nome Completo" value="{{ members.nameM }}" required>
                     <div class="invalid-feedback">
                       Por favor preencha seu Nome Completo!
                     </div>
@@ -75,35 +75,35 @@
                   </div>
                 </div>
                 <div class="col-sm-3 form-group mb-4">
-                  <label for="uf">Estado:</label>
+                  <label for="ufM">Estado:</label>
                   <div class="input-group">
-                    <select name="ufM" class="form-select" aria-label="uf">
+                    <select name="ufM" class="form-select">
                       <option selected>Selecione UF</option>
-                      <option value="{{ members.ufM }}">Acre</option>
-                      <option value="{{ members.ufM }}">Alagoas</option>
-                      <option value="{{ members.ufM }}">Amazonas</option>
-                      <option value="{{ members.ufM }}">Bahia</option>
-                      <option value="{{ members.ufM }}">Distrito Federal</option>
-                      <option value="{{ members.ufM }}">Espírito Santo</option>
-                      <option value="{{ members.ufM }}">Goiás</option>
-                      <option value="{{ members.ufM }}">Maranhão</option>
-                      <option value="{{ members.ufM }}">Mato Grosso</option>
-                      <option value="{{ members.ufM }}">Mato Grosso do Sul</option>
-                      <option value="{{ members.ufM }}">Minas Gerais</option>
-                      <option value="{{ members.ufM }}">Pará</option>
-                      <option value="{{ members.ufM }}">Paraíba</option>
-                      <option value="{{ members.ufM }}">Paraná</option>
-                      <option value="{{ members.ufM }}">Pernambuco</option>
-                      <option value="{{ members.ufM }}">Piauí</option>
-                      <option value="{{ members.ufM }}">Rio de Janeiro</option>
-                      <option value="{{ members.ufM }}">Rio Grande do Norte</option>
-                      <option value="{{ members.ufM }}">Rio Grande do Sul</option>
-                      <option value="{{ members.ufM }}">Rondônia</option>
-                      <option value="{{ members.ufM }}">Roraima</option>
-                      <option value="{{ members.ufM }}">Santa Catarina</option>
-                      <option value="{{ members.ufM }}">São Paulo</option>
-                      <option value="{{ members.ufM }}">Sergipe</option>
-                      <option value="{{ members.ufM }}">Tocantis</option>
+                      <option value="AC">Acre</option>
+                      <option value="AL">Alagoas</option>
+                      <option value="AM">Amazonas</option>
+                      <option value="BA">Bahia</option>
+                      <option value="DF">Distrito Federal</option>
+                      <option value="ES">Espírito Santo</option>
+                      <option value="GO">Goiás</option>
+                      <option value="MA">Maranhão</option>
+                      <option value="MT">Mato Grosso</option>
+                      <option value="MS">Mato Grosso do Sul</option>
+                      <option value="MG">Minas Gerais</option>
+                      <option value="PA">Pará</option>
+                      <option value="PB">Paraíba</option>
+                      <option value="PR">Paraná</option>
+                      <option value="PE">Pernambuco</option>
+                      <option value="PI">Piauí</option>
+                      <option value="RJ">Rio de Janeiro</option>
+                      <option value="RN">Rio Grande do Norte</option>
+                      <option value="RS">Rio Grande do Sul</option>
+                      <option value="RO">Rondônia</option>
+                      <option value="RR">Roraima</option>
+                      <option value="SC">Santa Catarina</option>
+                      <option value="SP">São Paulo</option>
+                      <option value="SE">Sergipe</option>
+                      <option value="TO">Tocantis</option>
                     </select>
                   </div>
                 </div>
@@ -118,7 +118,7 @@
                         local_library
                       </span>
                     </span>
-                    <input name="namei" type="text" class="form-control" placeholder="Instituição" value="{{ members.nameInstM }}" required>
+                    <input name="nameInstM" type="text" class="form-control" placeholder="Instituição" value="{{ members.nameInstM }}" required>
                   </div>
                 </div>
 
@@ -130,7 +130,7 @@
                         event_available
                       </span>
                     </span>
-                    <input name="datei" type="text" class="form-control" placeholder="Dia/Mês/Ano" value="{{ members.dateInstM }}" required>
+                    <input name="dateInstM" type="text" class="form-control" placeholder="Dia/Mês/Ano" value="{{ members.dateInstM }}" required>
                   </div>
                 </div>
                 <div class="col-sm-3 form-group mb-4">
@@ -141,14 +141,14 @@
                         reduce_capacity
                       </span>
                     </span>
-                    <input name="qtdem" type="text" class="form-control" placeholder="Membros" value="{{ members.membersQt }}" required>
+                    <input name="membersQt" type="text" class="form-control" placeholder="Membros" value="{{ members.membersQt }}" required>
                   </div>
                 </div>
               </div>
               <div class="row mb-2">
                 <div class="form-group">
                   <label for="info">Informações Úteis:</label>
-                  <textarea name="infoM" class="form-control" rows="5" value="{{ members.infoInstM }}"></textarea>
+                  <textarea name="infoInstM" class="form-control" rows="5" value="{{ members.infoInstM }}"></textarea>
                 </div>
               </div>
 

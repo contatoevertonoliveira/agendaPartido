@@ -1,6 +1,6 @@
 import environ
 
-from agenda.settings.baseproduction import *
+from agenda.settings.base import *
 
 env = environ.Env()
 

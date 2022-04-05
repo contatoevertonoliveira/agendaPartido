@@ -16,9 +16,13 @@ def homeSubmit(request):
     if form.is_valid():
         form.save()
         messages.success(request, 'Cadastro realizado com sucesso!')
-        return redirect('homeView')
-        
-    return render(request, 'home.html', {'form': form})
+        return redirect(homeView)
+    else:
+        messages.error(request, "Cadastro não realizado. Tente Novamente, mais tarde!")
+        return redirect(homeView)
+    
+    return redirect(request, 'home.html', {'form': form, 'member':member})
+    
     
 @login_required(login_url='login/')
 def listMembers(request):
